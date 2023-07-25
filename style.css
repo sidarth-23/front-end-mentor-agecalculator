@@ -1,0 +1,85 @@
+body{
+    font-family: 'Poppins', 'sans-serif';
+    background-color: hsl(0, 0%, 94%);
+    font-size: 32px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+.contents{
+    background-color: white;
+    padding: 50px;
+    border-radius: 40px 40px 250px 40px;
+}
+
+label{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+input{
+    width: 100px;
+    margin: auto 40px auto 0px;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 20px;
+    border: 1px solid hsl(0, 0%, 86%);
+    border-radius: 20px;
+}
+
+hr{
+    width: 80%;
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+button{
+    position: relative;
+    top:50px;
+    left: 90%;
+    padding: 10px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: hsl(259, 100%, 65%);
+}
+
+button:hover{
+    background-color: hsla(259, 100%, 65%, 0.5);
+}
+
+.calculation p{
+    font-size: 65px;
+    margin:0;
+    font-style: italic;
+    font-weight: 600;
+}
+
+span{
+    color: hsl(259, 100%, 65%);
+}
+
+.error{
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    color: hsl(0, 100%, 67%);
+}
+
+@media (max-width: 680px){
+    .contents{
+        scale: 0.8;
+    }
+    button{
+        position: relative;
+        top:50px;
+        left: 40%;
+        padding: 10px;
+        border-radius: 50%;
+        border-color: transparent;
+        background-color: hsl(259, 100%, 65%);
+}
+}
