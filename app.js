@@ -22,22 +22,24 @@ function allFilled(year, month, day){
     }
 }
 
-function withinRange(year, month, day){
+function withinRange(year, month, day) {
+    let check = true
     const dayValue = parseInt(day.value);
     const monthValue = parseInt(month.value);
     const yearValue = parseInt(year.value);
     if (1>dayValue || dayValue>31){
-        check1.textContent='Must be a valid day';
+        check1.textContent = 'Must be a valid day';
+        check = false;
     }
-    else if (1>monthValue || monthValue>12){
-        check2.textContent='Must be a valid month';
+    if (1>monthValue || monthValue>12){
+        check2.textContent = 'Must be a valid month';
+        check = false;
     }
-    else if(new Date().getFullYear() < yearValue){
-        check3.textContent='Must be a valid year';
+    if(new Date().getFullYear() < yearValue){
+        check3.textContent = 'Must be a valid year';
+        check = false;
     }
-    else{
-        return true
-    }
+    return check;
 }
 
 function validDate(year, month, day){
@@ -90,3 +92,12 @@ button.addEventListener('click', () => {
         }
     }
 })
+
+
+const input = document.querySelectorAll('.input-boxes * input');
+input.forEach((item) => item.addEventListener('keydown', (event) => {
+    const key = event.key || String.fromCharCode(event.keyCode);
+    if (isNaN(key) && key != 'Backspace' && key != 'Delete') {
+        event.preventDefault();
+    }
+}))
