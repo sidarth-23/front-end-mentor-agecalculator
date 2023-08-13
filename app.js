@@ -68,28 +68,38 @@ function getDateDiff(date1, date2) {
     return { years, months, days };
   }
 
+
+const compute = () => {
+  check1.textContent = ""
+  check2.textContent = ""
+  check3.textContent = ""
+  if (allFilled(year, month, day)) {
+    if (withinRange(year, month, day)) {
+      if (validDate(year, month, day)) {
+        check1.textContent = ""
+        check2.textContent = ""
+        check3.textContent = ""
+        const dayValue = parseInt(day.value)
+        const monthValue = parseInt(month.value)
+        const yearValue = parseInt(year.value)
+        const selectDate = new Date(yearValue, monthValue - 1, dayValue)
+        const currenDate = new Date()
+        const diff = getDateDiff(selectDate, currenDate)
+        yearCal.textContent = diff.years
+        monthCal.textContent = diff.months
+        dayCal.textContent = diff.days
+      }
+    }
+  }
+}
+  
 const button = document.querySelector('.send-input');
-button.addEventListener('click', () => {
-    check1.textContent = '';
-    check2.textContent = '';
-    check3.textContent = '';
-    if (allFilled(year, month, day)){
-        if (withinRange(year, month, day)){
-            if (validDate(year, month, day)){
-                check1.textContent = '';
-                check2.textContent = '';
-                check3.textContent = '';
-                const dayValue = parseInt(day.value);
-                const monthValue = parseInt(month.value);
-                const yearValue = parseInt(year.value);
-                const selectDate = new Date(yearValue, monthValue - 1, dayValue);
-                const currenDate = new Date();
-                const diff = getDateDiff(selectDate,currenDate);
-                yearCal.textContent = diff.years;
-                monthCal.textContent = diff.months;
-                dayCal.textContent = diff.days;
-            }
-        }
+button.addEventListener('click', () => compute())
+document.addEventListener('keydown', (event) => {
+    const key = event.key || String.fromCharCode(event.keyCode);
+    console.log(key);
+    if (key === 'Enter') {
+        compute();
     }
 })
 
